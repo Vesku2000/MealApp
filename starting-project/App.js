@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet} from 'react-native';
 import CategoriesScreen from './screens/CategoriesScreen';
+import MealsScreen from './screens/MealsScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -13,6 +14,7 @@ export default function App() {
   <NavigationContainer>
     <Stack.Navigator>
       <Stack.Screen name="Categories" component={CategoriesScreen} />
+      <Stack.Screen name="Overview" component={MealsScreen} />
     </Stack.Navigator>
   </NavigationContainer>
   
