@@ -4,6 +4,7 @@ import { MEALS } from "../data/dummy-data";
 import MealDetails from "../components/MealDetails";
 import Subtitle from "../components/MealDetail/Subtitle";
 import List from "../components/MealDetail/List";
+import IconButton from "../components/iconButton";
 
 function DetailScreen({ route, navigation }) {
 
@@ -20,7 +21,7 @@ function DetailScreen({ route, navigation }) {
     useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => {
-                return <Button title="tap" onPress={headderButtonPressHandler} />;
+                return <IconButton icon="star" color="white" onPress={headderButtonPressHandler} />;
               }
         })
     }, [navigation, headderButtonPressHandler]);
