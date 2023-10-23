@@ -7,7 +7,7 @@ function DetailScreen({ route }) {
 
     const mealId = route.params.mealId;
 
-    const selectedMeal = MEALS.find((meal) => mealId.id === mealId)
+    const selectedMeal = MEALS.find((meal) => meal.id === mealId)
 
     return <View>
         <Image source={{ uri: selectedMeal.imageUrl}}/>
