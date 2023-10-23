@@ -1,7 +1,8 @@
-import { View, Image, Text } from "react-native";
+import { View, Image, Text, StyleSheet } from "react-native";
 
 import { MEALS } from "../data/dummy-data";
 import MealDetails from "../components/MealDetails";
+import Subtitle from "../components/MealDetail/Subtitle";
 
 function DetailScreen({ route }) {
 
@@ -10,18 +11,40 @@ function DetailScreen({ route }) {
     const selectedMeal = MEALS.find((meal) => meal.id === mealId)
 
     return <View>
-        <Image source={{ uri: selectedMeal.imageUrl}}/>
-        <Text>{selectedMeal.title}</Text>
+        <Image style={styles.image} source={{ uri: selectedMeal.imageUrl}}/>
+        <Text style={styles.title}>{selectedMeal.title}</Text>
         <MealDetails 
         duration={selectedMeal.duration}
         complexity={selectedMeal.complexity}
         affordability={selectedMeal.affordability}
+        textStyle={styles.detailText}
         />
-        <Text>Ingridients</Text>
+        <View style={styles.subtitleContainer}>
+        <Text style={styles.subtitle}>Ingridients</Text>
+        </View>
+        
         {selectedMeal.ingredients.map(ingredient => <Text key={ingredient}>{ingredient}</Text>)}
-        <Text>steps</Text>
+        <Subtitle>Steps</Subtitle>
         {selectedMeal.steps.map(step => <Text key={step}>{step}</Text>)}
     </View>
 }
 
 export default DetailScreen;
+
+const styles = StyleSheet.create({
+    image: {
+        width: '100%',
+        height: 350,
+    },
+    title: {
+        fontWeight: 'bold',
+        fontSize: 24,
+        margin: 0,
+        textAlign: 'center',
+        color: 'white',
+    },
+    detailText:{
+        color: 'white',
+    },
+    
+})
